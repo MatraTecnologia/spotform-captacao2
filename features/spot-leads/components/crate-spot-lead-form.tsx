@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { nanoid } from 'nanoid'
 import { Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { Button } from '@/components/ui/button'
@@ -32,7 +32,6 @@ import {
 } from '@/components/ui/form'
 
 export const CreateSpotLeadForm = () => {
-  const router = useRouter()
 
   const { mutate, isPending } = useCreateSpotLead()
 
@@ -67,7 +66,7 @@ export const CreateSpotLeadForm = () => {
             phone: values.phone,
           })
 
-          router.push('/redirect')
+          window.location.href = '/redirect'
           form.reset()
         },
       })

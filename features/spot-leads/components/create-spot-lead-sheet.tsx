@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { nanoid } from 'nanoid'
 import { Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import logo from '@/public/logo.svg'
@@ -39,7 +39,7 @@ import {
 } from '@/components/ui/form'
 
 export const CreateSpotLeadSheet = () => {
-  const router = useRouter()
+
   const { isOpen, onClose } = useOpenCreateSpotLeadSheet()
 
   const { mutate, isPending } = useCreateSpotLead()
@@ -80,7 +80,7 @@ export const CreateSpotLeadSheet = () => {
             phone: values.phone,
           })
 
-          router.push('/redirect')
+          window.location.href = '/redirect'
           form.reset()
         },
       })
